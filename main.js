@@ -126,6 +126,33 @@ messanger.sayBurrito = function() {
 
 /*---------------------------------*/
 
+/*events*/
+
+/*add event listner to document element*/
+
+document.addEventListener("mousedown", function(event) {
+  console.log("Mouse Down!");
+});
+
+/*event is an object and we can use it to get the exact x and y parameter of the mouse. The mouse position will be on properties clientx and clienty*/
+
+document.addEventListener("mousedown", function(event) {
+  console.log("Blackhawk Down! x: " + event.clientX + ", y: " + event.clientY);
+});
+
+/*appending the key code property of the event object*/
+
+document.addEventListener("keydown", function(event) {
+  console.log("key down: " + event.keyCode);
+});
+
+/*using String method fromCharCode to convert keyCode # into the charachter it represents*/
+
+document.addEventListener("keydown", function(event) {
+  console.log("actual key down: " + String.fromCharCode(event.keyCode));
+});
+
+
 /*calling functions*/
 listItems();
 listTools();
