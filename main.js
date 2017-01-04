@@ -64,7 +64,6 @@ var workout = {
      workoutPrompt: function() {
       console.log(this.chest + " " + this.booty);
     }
-
 };
 
 
@@ -130,7 +129,7 @@ messanger.sayBurrito = function() {
 
 
 
-/*events*/
+/*events---------------------------------------------------------------------*/
 
 /*add event listner to document element*/
 
@@ -158,7 +157,7 @@ document.addEventListener("keydown", function(event) {
 
 
 
-/*DOM manipulation*/
+/*DOM manipulation-------------------------------------------------------------*/
 
 var btn = document.getElementById("btn");
 
@@ -183,6 +182,44 @@ for(var i=0; i<li.length; i += 2){
 
 var ext = document.querySelector('p span.exciting');
   ext.style.fontWeight= "bold";
+
+/*replace text in first list item. querySelectorAll('li'); item[1].textContent would also work */
+
+var item = document.querySelector('li');
+item.textContent="New number one";
+
+
+/*this code creates new list items but will also git rid of the original text
+
+var list = document.querySelector('ul');
+list.innerHTML = "<li>New list item</li><li>And another</li>";
+
+*/
+
+/*styling elements*/
+
+var firstHeading = document.querySelector("h1");
+firstHeading.style.fontFamily = "Arial";
+firstHeading.style.fontSize = "48px";
+firstHeading.style.color = "Goldenrod";
+firstHeading.style.textAlign = "center";
+
+/*positioning elements*/
+
+var block = document.getElementById('block');
+block.style.width = "100px";
+block.style.height = "100px";
+block.style.backgroundColor = "yellow";
+
+block.style.position = "absolute";
+document.addEventListener("click", function(event) {
+  block.style.left = event.clientX + "px";
+  block.style.top = event.clientY + "px";
+  /*block moves to the position of the mouse click*/
+});
+
+
+
 
 
 
