@@ -152,6 +152,16 @@ document.addEventListener("keydown", function(event) {
   console.log("actual key down: " + String.fromCharCode(event.keyCode));
 });
 
+/*DOM manipulation*/
+
+
+
+
+
+
+
+
+
 
 /*calling functions*/
 listItems();
