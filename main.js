@@ -211,12 +211,84 @@ block.style.width = "100px";
 block.style.height = "100px";
 block.style.backgroundColor = "yellow";
 
-block.style.position = "absolute";
-document.addEventListener("click", function(event) {
-  block.style.left = event.clientX + "px";
-  block.style.top = event.clientY + "px";
-  /*block moves to the position of the mouse click*/
-});
+/*block moves to the position of the mouse click*/
+// block.style.position = "absolute";
+// document.addEventListener("click", function(event) {
+//   block.style.left = event.clientX + "px";
+//   block.style.top = event.clientY + "px";
+// });
+
+/*first application! Running Calculator---------------------------------------*/
+var distanceInput = document.getElementById('distance');
+var hoursInput = document.getElementById('hours');
+var minutesInput = document.getElementById('minutes');
+var secondsInput = document.getElementById('seconds');
+var calculateBtn = document.getElementById('calculate_btn');
+var paceText = document.getElementById('pace');
+
+calculateBtn.addEventListener("click", function(event) {
+  var miles = parseFloat(distanceInput.value);
+  var hours = parseFloat(hoursInput.value);
+  var minutes = parseFloat(minutesInput.value);
+  var seconds = parseFloat(secondsInput.value);
+
+  function validateInput(value, input) {
+    if(isNaN(value)) {
+      input.style.borderColor = "red";
+      return;
+    }
+    else {
+        input.style.borderColor = "initial";
+    }
+  };
+
+  validateInput(miles, distanceInput);
+  validateInput(hours, hoursInput);
+  validateInput(minutes, minutesInput);
+  validateInput(seconds, secondsInput);
+
+  // if(isNaN(miles)) {
+  //   distanceInput.style.borderColor = "red";
+  //   return;
+  // }
+  // else {
+  //       distanceInput.style.borderColor = "initial";
+  // }
+  // if(isNaN(hours)) {
+  //   hoursInput.style.borderColor = "red";
+  //   return;
+  // }
+  // else {
+  //       hoursInput.style.borderColor = "initial";
+  // }
+  // if(isNaN(minutes)) {
+  //   minutesInput.style.borderColor = "red";
+  //   return;
+  // }
+  // else {
+  //       minutesInput.style.borderColor = "initial";
+  // }
+  // if(isNaN(seconds)) {
+  //   secondsInput.style.borderColor = "red";
+  //   return;
+  // }
+  // else {
+  //       secondsInput.style.borderColor = "initial";
+  // }
+  //
+
+  var totalMinutes = hours * 60 + minutes + seconds / 60;
+  var pace = totalMinutes / miles;
+  var paceMinutes = Math.floor(pace);
+  var paceSeconds = Math.round((pace - paceMinutes) * 60);
+
+  if(paceSeconds < 10){
+    paceSeconds = "0" + paceSeconds;
+  }
+
+  paceText.textContent = "You need to run " + paceMinutes + ":" + paceSeconds + " minutes per mile, bro.";
+})
+
 
 
 

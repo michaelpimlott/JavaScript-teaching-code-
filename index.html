@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Javascript for rap Enthusiasts</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript for rap Enthusiasts</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <h1>Howdy</h1>
-    <button id="btn">Please, please. please click me!</button>
-    <h1>Section One</h1>
-    <p class="first_paragraph">Don't call it a comeback. I've been here for years. I'm rocking my peers. Puttin' suckers in fear.</p>
-    <p>Makin' the tears rain down like a monsoon. Listen to the bass go boom. Explosions, overpowerin'. Over the competition I'm towerin'.</p>
-    <p>Wrecking shop when I write these lyrics. That'll make you call the cops. Don't you dare stare, you better move. Don't ever compare.</p>
+</head>
 
-    <h1>Section Two</h1>
-    <p class="first_paragraph">Me to the rest that'll all get sliced and diced. Competition's payin' the price. I'm gonna knock you out. Mama said knock you out.</p>
-    <p>I'm gonna knock you out. Mama said knock you out. I'm gonna knock you out. Mama said knock you out.</p>
-    <p><span class="exciting">I'm gonna knock you out. Mama said knock you out.</span> Don't you call this a regular jam. I'm gonna rock this land.</p>
+<body>
 
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-      <li>Item 4</li>
-      <li>Item 5</li>
-      <li>Item 6</li>
-    </ul>
+  <!--dom manipulation practice-->
 
-    <div id="block"></div>
+  <h1>Howdy</h1>
+  <button id="btn">Please, please. please click me!</button>
+  <h1>Section One</h1>
+  <p class="first_paragraph">Don't call it a comeback. I've been here for years. I'm rocking my peers. Puttin' suckers in fear.</p>
+  <p>Makin' the tears rain down like a monsoon. Listen to the bass go boom. Explosions, overpowerin'. Over the competition I'm towerin'.</p>
+  <p>Wrecking shop when I write these lyrics. That'll make you call the cops. Don't you dare stare, you better move. Don't ever compare.</p>
 
+  <h1>Section Two</h1>
+  <p class="first_paragraph">Me to the rest that'll all get sliced and diced. Competition's payin' the price. I'm gonna knock you out. Mama said knock you out.</p>
+  <p>I'm gonna knock you out. Mama said knock you out. I'm gonna knock you out. Mama said knock you out.</p>
+  <p><span class="exciting">I'm gonna knock you out. Mama said knock you out.</span> Don't you call this a regular jam. I'm gonna rock this land.</p>
 
-    <script type="text/javascript" src="main.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+    <li>Item 6</li>
+  </ul>
 
-  </body>
+  <!--moving div-->
+
+  <div id="block"></div>
+
+  <!--running calculator-->
+
+  <p>Distance: <input type="text" id="distance"/> miles</p>
+  <p>Time: <input type="text" id="hours"/> : <input type="text" id="minutes"/> : <input type="text" id="seconds"/></p>
+  <p><button id="calculate_btn">Calculate Pace</button></p>
+  <p id="pace"></p>
+
+  <script type="text/javascript" src="main.js"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+
 </html>
