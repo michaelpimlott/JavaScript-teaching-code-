@@ -126,6 +126,10 @@ messanger.sayBurrito = function() {
 
 /*---------------------------------*/
 
+
+
+
+
 /*events*/
 
 /*add event listner to document element*/
@@ -152,14 +156,33 @@ document.addEventListener("keydown", function(event) {
   console.log("actual key down: " + String.fromCharCode(event.keyCode));
 });
 
+
+
 /*DOM manipulation*/
 
+var btn = document.getElementById("btn");
 
+btn.addEventListener("click", function() {
+  alert("Please Don't touch me.");
+});
 
+/*get element by class name returns an "array like object", so we have to loop through the array and get a refrence to each paragraph object*/
+/*each element in the list will be refrenced as elems[i]*/
 
+var elms = document.getElementsByClassName("first_paragraph");
 
+for(var i=0; i<elms.length; i++){
+  elms[i].style.backgroundColor= "yellow";
+}
 
+var li = document.getElementsByTagName("li");
 
+for(var i=0; i<li.length; i += 2){
+  li[i].style.backgroundColor= "Goldenrod";
+}
+
+var ext = document.querySelector('p span.exciting');
+  ext.style.fontWeight= "bold";
 
 
 
