@@ -126,9 +126,6 @@ messanger.sayBurrito = function() {
 /*---------------------------------*/
 
 
-
-
-
 /*events---------------------------------------------------------------------*/
 
 /*add event listner to document element*/
@@ -406,9 +403,39 @@ for(var i = 0; i < standings.length; i++) {
 /*When the fagment is fully populated add it to the document body*/
 document.body.appendChild(fragment);
 
+/*HTML templates--------------------------------------------------------------*/
+/*Using the Mustache JS templating library*/
 
+/*Create a template*/
+var template = "<h2>Hello, {{firstName}} {{lastName}}!</h2>";
+/* We need a data source. Make an object with a property called name*/
+var data = {
+  firstName: "Marcus",
+  lastName: "Honeychild"
+};
+/*Put the template together with the data by calling the Mustache.render method whitch gets passed the template and the data*/
+var html = Mustache.render(template, data);
+/*The 'html' variable we get back is a string containing the template with any tags replaced by actual values from the data*/
+/*There are a few ways to add this string to the document. Here we create a div and set it's inner HTMl to the 'html' string*/
+var div = document.createElement('div');
+div.innerHTML = html;
+document.body.appendChild(div);
 
-
+/*Trick for writing template like you would normal HTML.*/
+/*1)Put the template html inside a script tag on the page. It can be put in the head tag because it won't do anything when it loads.
+<script id="thisTemplate" type="x-tmpl-mustache">
+  <h1>Hello, {{name}}!</h1>
+</script>
+2)Access script tag by using getElementById
+var thisTemplate = document.getElementById('thisTemplate').innerHTML;*/
+var thisTemplate = document.getElementById("thisTemplate").innerHTML;
+var thisData = {
+  name: "Smitty"
+};
+var thisHtml = Mustache.render(thisTemplate, thisData);
+var thisDiv = document.createElement('div');
+thisDiv.innerHTML = thisHtml;
+document.body.appendChild(thisDiv);
 
 
 
