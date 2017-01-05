@@ -428,14 +428,19 @@ document.body.appendChild(div);
 </script>
 2)Access script tag by using getElementById
 var thisTemplate = document.getElementById('thisTemplate').innerHTML;*/
-var thisTemplate = document.getElementById("thisTemplate").innerHTML;
-var thisData = {
-  name: "Smitty"
-};
-var thisHtml = Mustache.render(thisTemplate, thisData);
-var thisDiv = document.createElement('div');
-thisDiv.innerHTML = thisHtml;
-document.body.appendChild(thisDiv);
+
+/*the javascript*/
+// var thisTemplate = document.getElementById("thisTemplate").innerHTML;
+// var thisData = {
+//   name: "Smitty"
+// };
+// var thisHtml = Mustache.render(thisTemplate, thisData);
+// var thisDiv = document.createElement('div');
+// thisDiv.innerHTML = thisHtml;
+// document.body.appendChild(thisDiv);
+
+/*Profile Builder project-----------------------------------------------------*/
+
 
 
 
