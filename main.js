@@ -260,6 +260,30 @@ calculateBtn.addEventListener("click", function(event) {
   paceText.textContent = "You need to run " + paceMinutes + ":" + paceSeconds + " minutes per mile, bro.";
 })
 
+/*creating elements-------------------------------------------------*/
+
+/*select parent element*/
+var lists = document.querySelector('ul');
+/*create empty element*/
+var listItem = document.createElement('li');
+/*give empty element text content*/
+listItem.textContent = "item 7";
+/*append new element to ul */
+lists.appendChild(listItem);
+
+/*inserting an element between two others*/
+
+/*create new list item*/
+var newItem = document.createElement('li');
+/*set new item text content*/
+newItem.textContent = "item 2.5";
+/*select all list items from parent ul*/
+var allItems = lists.getElementsByTagName('li');
+/*set the reference item, the item the element is to be inserted before*/
+var refItem = allItems[2];
+/*insert the new item before the refrence item*/
+lists.insertBefore(newItem, refItem);
+
 
 
 
