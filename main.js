@@ -284,6 +284,18 @@ var refItem = allItems[2];
 /*insert the new item before the refrence item*/
 lists.insertBefore(newItem, refItem);
 
+/*removing an element-----------------------------------------------*/
+
+/*removing child element*/
+var thisItem = document.querySelectorAll('li')[7];
+lists.removeChild(thisItem);
+
+/*removing parent element (Atually, the headings parent is the document body. This says whatever your parent is tell it to remove you)*/
+var heading = document.querySelectorAll('h1')[2];
+heading.parentElement.removeChild(heading);
+/*the return child method will return the element that was removed, here it is stored in the 'heading' variable and can be put back in wherever we want*/
+document.body.appendChild(heading);
+
 
 
 
