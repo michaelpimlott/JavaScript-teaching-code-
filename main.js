@@ -183,7 +183,7 @@ for(var i=0; i<li.length; i += 2){
 var ext = document.querySelector('p span.exciting');
   ext.style.fontWeight= "bold";
 
-/*replace text in first list item. querySelectorAll('li'); item[1].textContent would also work */
+/*replace text in first list item. querySelectorAll('li')[1]; item.textContent would also work */
 
 var item = document.querySelector('li');
 item.textContent="New number one";
@@ -247,35 +247,6 @@ calculateBtn.addEventListener("click", function(event) {
   validateInput(minutes, minutesInput);
   validateInput(seconds, secondsInput);
 
-  // if(isNaN(miles)) {
-  //   distanceInput.style.borderColor = "red";
-  //   return;
-  // }
-  // else {
-  //       distanceInput.style.borderColor = "initial";
-  // }
-  // if(isNaN(hours)) {
-  //   hoursInput.style.borderColor = "red";
-  //   return;
-  // }
-  // else {
-  //       hoursInput.style.borderColor = "initial";
-  // }
-  // if(isNaN(minutes)) {
-  //   minutesInput.style.borderColor = "red";
-  //   return;
-  // }
-  // else {
-  //       minutesInput.style.borderColor = "initial";
-  // }
-  // if(isNaN(seconds)) {
-  //   secondsInput.style.borderColor = "red";
-  //   return;
-  // }
-  // else {
-  //       secondsInput.style.borderColor = "initial";
-  // }
-  //
 
   var totalMinutes = hours * 60 + minutes + seconds / 60;
   var pace = totalMinutes / miles;
