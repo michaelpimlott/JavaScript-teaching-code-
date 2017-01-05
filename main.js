@@ -355,6 +355,56 @@ var standings = [
     ties: 1
   }
 ];
+/*loop through the array and get a refrence to each object in it*/
+// for(var i = 0; i < standings.length; i++) {
+//   /*call that object team*/
+//   var team = standings[i];
+//   /*each object has four properties. We can use the data in those properties to create and populate HTML elements*/
+//   var thisHeading = document.createElement('h2');
+//   document.body.appendChild(thisHeading);
+//   thisHeading.textContent = team.name;
+//
+//   var wins = document.createElement('p');
+//   document.body.appendChild(wins);
+//   wins.textContent = "Wins: " + team.wins;
+//
+//   var losses = document.createElement('p');
+//   document.body.appendChild(losses);
+//   losses.textContent = "Losses: " + team.losses;
+//
+//   var ties = document.createElement('p');
+//   document.body.appendChild(ties);
+//   ties.textContent = "Ties: " + team.ties;
+//
+//   /*the above causes 32 page reflows. If we use a Document Fragment we can use only 1 reflow.*/
+//
+// };
+
+/*instead of adding the elements to the document body, add them to the fragment instead*/
+var fragment = new DocumentFragment();
+
+for(var i = 0; i < standings.length; i++) {
+  var team = standings[i];
+
+  var thisHeading = document.createElement('h2');
+  fragment.appendChild(thisHeading);
+  thisHeading.textContent = team.name;
+
+  var wins = document.createElement('p');
+  fragment.appendChild(wins);
+  wins.textContent = "Wins: " + team.wins;
+
+  var losses = document.createElement('p');
+  fragment.appendChild(losses);
+  losses.textContent = "Losses: " + team.losses;
+
+  var ties = document.createElement('p');
+  fragment.appendChild(ties);
+  ties.textContent = "Ties: " + team.ties;
+
+}
+/*When the fagment is fully populated add it to the document body*/
+document.body.appendChild(fragment);
 
 
 
