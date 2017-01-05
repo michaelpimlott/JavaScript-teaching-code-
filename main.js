@@ -294,7 +294,69 @@ lists.removeChild(thisItem);
 var heading = document.querySelectorAll('h1')[2];
 heading.parentElement.removeChild(heading);
 /*the return child method will return the element that was removed, here it is stored in the 'heading' variable and can be put back in wherever we want*/
-document.body.appendChild(heading);
+document.body.appendChild(heading); /*p.appendChild(heading);*/
+
+
+/*accessing child elements*/
+
+/*accesing all of a parent elements children*/
+console.log(lists.children);
+/*first and last elements*/
+console.log(lists.firstElementChild);
+console.log(lists.lastElementChild);
+/*accesing a specific child, then the one before or after*/
+var middleItem = lists.children[3];
+console.log(middleItem.nextElementSibling);
+console.log(middleItem.previousElementSibling);
+
+/*Document Fragments--------------------------------------------------------*/
+
+var standings = [
+  {
+    name: "Chicago Bulls",
+    wins: 20,
+    losses: 10,
+    ties: 0
+  },
+  {
+    name: "Detroit Pistons",
+    wins: 22,
+    losses: 7,
+    ties: 1
+  },
+  {
+    name: "Houston Rockets",
+    wins: 0,
+    losses: 30,
+    ties: 0
+  },
+  {
+    name: "Portland Trailblazers",
+    wins: 30,
+    losses: 0,
+    ties: 0
+  },
+  {
+    name: "Miami Heat",
+    wins: 6,
+    losses: 22,
+    ties: 2
+  },
+  {
+    name: "Atlanta Hawks",
+    wins: 16,
+    losses: 12,
+    ties: 2
+  },
+  {
+    name: "Boston Celtics",
+    wins: 26,
+    losses: 3,
+    ties: 1
+  }
+];
+
+
 
 
 
