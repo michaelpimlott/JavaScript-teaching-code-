@@ -49,3 +49,25 @@ so we can keep chaining*/
   .fail(function(){
     alert("Request failed. Try Again.");
 });
+
+/*omdb api search*/
+
+
+
+  $.get("http://omdbapi.com/?s=star wars", null, null, "json")
+    .done(function(data) {
+      console.log(data);
+  })
+  .fail(function(){
+    alert("Request failed. Try Again.");
+  });
+
+/*This request returns a JSON string, meaning that for whatever reason,
+jQuery did not detect this was JSON, so it didn't convert it to an object for us
+We can correct this by explicitly specifying the data type
+a get request takes 4 paramaters
+1)the url
+2)any data you want to send to the server with the request
+3)the success handler function
+4)the data type
+here we will assign the data and success paramaters to null*/
