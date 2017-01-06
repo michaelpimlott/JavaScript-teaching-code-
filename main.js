@@ -134,7 +134,8 @@ document.addEventListener("mousedown", function(event) {
   console.log("Mouse Down!");
 });
 
-/*event is an object and we can use it to get the exact x and y parameter of the mouse. The mouse position will be on properties clientx and clienty*/
+/*event is an object and we can use it to get the exact x and y parameter of the mouse.
+ The mouse position will be on properties clientx and clienty*/
 
 document.addEventListener("mousedown", function(event) {
   console.log("Blackhawk Down! x: " + event.clientX + ", y: " + event.clientY);
@@ -162,7 +163,8 @@ btn.addEventListener("click", function() {
   alert("Please Don't touch me.");
 });
 
-/*get element by class name returns an "array like object", so we have to loop through the array and get a refrence to each paragraph object*/
+/*get element by class name returns an "array like object",
+ so we have to loop through the array and get a refrence to each paragraph object*/
 /*each element in the list will be refrenced as elems[i]*/
 
 var elms = document.getElementsByClassName("first_paragraph");
@@ -287,10 +289,12 @@ lists.insertBefore(newItem, refItem);
 var thisItem = document.querySelectorAll('li')[7];
 lists.removeChild(thisItem);
 
-/*removing parent element (Atually, the headings parent is the document body. This says whatever your parent is tell it to remove you)*/
+/*removing parent element (Atually, the headings parent is the document body.
+ This says whatever your parent is tell it to remove you)*/
 var heading = document.querySelectorAll('h1')[2];
 heading.parentElement.removeChild(heading);
-/*the return child method will return the element that was removed, here it is stored in the 'heading' variable and can be put back in wherever we want*/
+/*the return child method will return the element that was removed,
+ here it is stored in the 'heading' variable and can be put back in wherever we want*/
 document.body.appendChild(heading); /*p.appendChild(heading);*/
 
 
@@ -413,16 +417,20 @@ var data = {
   firstName: "Marcus",
   lastName: "Honeychild"
 };
-/*Put the template together with the data by calling the Mustache.render method whitch gets passed the template and the data*/
+/*Put the template together with the data by calling the Mustache.render method
+ which gets passed the template and the data*/
 var html = Mustache.render(template, data);
-/*The 'html' variable we get back is a string containing the template with any tags replaced by actual values from the data*/
-/*There are a few ways to add this string to the document. Here we create a div and set it's inner HTMl to the 'html' string*/
+/*The 'html' variable we get back is a string containing the template
+with any tags replaced by actual values from the data*/
+/*There are a few ways to add this string to the document.
+ Here we create a div and set it's inner HTMl to the 'html' string*/
 var div = document.createElement('div');
 div.innerHTML = html;
 document.body.appendChild(div);
 
 /*Trick for writing template like you would normal HTML.*/
-/*1)Put the template html inside a script tag on the page. It can be put in the head tag because it won't do anything when it loads.
+/*1)Put the template html inside a script tag on the page.
+ It can be put in the head tag because it won't do anything when it loads.
 <script id="thisTemplate" type="x-tmpl-mustache">
   <h1>Hello, {{name}}!</h1>
 </script>
