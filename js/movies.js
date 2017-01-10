@@ -32,8 +32,37 @@ searchBtn.addEventListener("click", function() {
     var html = Mustache.render(listTemplate, data);
     listDiv.innerHTML = html;
 
+    /*4)We need to add a click event listener for each of the list items
+    we just created in the template */
+
+    var items = listDiv.getElementsByTagName('a');
+      for(var i = 0; i < items.length; i++) {
+        var item = items[i];
+        /*each element also has an ID, the imdb ID of the movie
+        we can loop through the array of results and
+        add a click event listener to each item*/
+        item.addEventListener("click", getDetails);
+        /*we will use a seperate named function (getDetails) for clarity sake*/
+      }
+
   }
 
   function onSearchFail() {
     alert("There was a problem contacting the server. Please try again");
+  }
+
+  /*this function will get an event object as a paramater
+  1 useful property for click events is target
+  this gives you the actual element that was clicked
+  so event.target.id will contain the imdb Id*/
+  function getDetails(event) {
+    var id = event.target.id;
+    $.get("http://omdbapi.com/?plot=full&i=" + id, null, null, "json")
+      .done(onDetailsResult)
+      .fail(onSearchFail);
+  }
+
+  function onDetailsResult(data) {
+    var html = Mustache.render(detailsTemplate, data);
+    detailsDiv.innerHTML = html;
   }
