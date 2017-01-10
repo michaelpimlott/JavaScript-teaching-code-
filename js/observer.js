@@ -4,16 +4,16 @@ var subject = {
   /*then we create an array called observers*/
   observers: [],
   /*then a method called registerObserver*/
-  registerObserver = function(observer) {
+  registerObserver: function(observer) {
     /*it gets a pramater called observer which we push onto the array*/
     this.observers.push(observer);
-  }
+  },
   /*next an unregister method*/
-  unresisterObserver = function(observer) {
-    this.observers.pop(observer);
-  }
+  unregisterObserver:function(observer) {
+    // this.observers.pop(observer);
+  },
   /*notifyObservers method will loup through the observers array*/
-  notifyObservers = function() {
+  notifyObservers: function() {
     for(var i=0; i < this.observers.length; i++) {
       this.observers[i].notify();
     }
@@ -30,8 +30,8 @@ document.getElementById("cb3").addEventListener("change", onCheckboxChanged);
 /*if all three checkboxes are checked we call notifyObservers*/
 function onCheckboxChanged(event) {
     if(document.getElementById("cb1").checked &&
-      (document.getElementById("cb2").checked &&
-      (document.getElementById("cb3").checked) {
+      document.getElementById("cb2").checked &&
+      document.getElementById("cb3").checked) {
         subject.notifyObservers();
       }
 }
@@ -43,7 +43,7 @@ function onCheckboxChanged(event) {
    notify: function() {
      /*we find the div thats holding the checkboxes
       and remove it from the document body*/
-      var form = getElementById("form");
+      var form = document.getElementById("form");
       document.body.removeChild(form);
    }
  };
