@@ -49,3 +49,21 @@ function onCheckboxChanged(event) {
  };
 
  subject.registerObserver(observer1);
+
+ var observer2 = {
+   notify: function() {
+     var h2 = document.createElement('h2');
+     h2.textContent = "COMPLETE!";
+     document.body.appendChild(h2);
+   }
+ };
+
+ subject.registerObserver(observer2);
+
+/* for the third server we will create and register at the smae time*/
+
+subject.registerObserver({
+  notify: function() {
+    alert('You are done!');
+  }
+})
