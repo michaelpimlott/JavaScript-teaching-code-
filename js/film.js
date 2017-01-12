@@ -7,7 +7,7 @@ var movieModel = Backbone.Model.extend({
  and one for the movie details*/
  /*the searchview will listen for a click on the search button,
  get the searchterm, and get the search model to get the results*/
- var searchView = Backbone.View.extend({
+ var SearchView = Backbone.View.extend({
    /*we give it a searchtext property that will point to the search text input element*/
    searchText: document.getElementById("search_text"),
    /*assigning the event handler in backbone:
@@ -42,7 +42,7 @@ var movieModel = Backbone.Model.extend({
  it also needs to listen for clicks on the list items
  and tell the details model to fetch details for the selected movie*/
 var ResultsView = Backbone.View.extend({
-  template: document.getElementById("list_template").innerHTML;
+  template: document.getElementById("list_template").innerHTML,
   /*in the init function we will listen for changes on the model*/
   initialize: function() {
     /*to listen for events on the model:
@@ -66,5 +66,5 @@ var detailsModel = new movieModel();
 /*we will connect a different view to each model*/
 /*we need to create an instance for the searchview
 we set the element of the searchview to the element with the id search(our search form)*/
-searView = new SearchView({ el: document.getElementById("search")});
+SearchView = new SearchView({ el: document.getElementById("search")});
 ResultsView = new ResultsView({ el: document.getElementById("list")});
