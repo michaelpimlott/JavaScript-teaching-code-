@@ -1,44 +1,70 @@
-
-var listTemplate = document.getElementById('list_template').innerHTML;
-var detailsTemplate = document.getElementById('details_template').innerHTML;
-var searchText = document.getElementById('search_text');
-var listDiv = document.getElementById('list');
-var detailsDiv = document.getElementById('details');
-var searchBtn = document.getElementById('search_button');
-
-
-
-searchBtn.addEventListener("click", function() {
-  var title = searchText.value;
-  $.get("http://omdbapi.com/?s=" + title, null, null, "json")
-    .done(onSearchResult)
-    .fail(onSearchFail);
+/*first we extend backbone.model, giving it a url root of the omdbapi*/
+var movieModel = Backbone.Model.extend({
+  urlRoot: "http://omdbapi.com"
 });
 
-  function onSearchResult(data) {
-    var html = Mustache.render(listTemplate, data);
-    listDiv.innerHTML = html;
+/*we make three views: one for the search form, one for the search results,
+ and one for the movie details*/
+ /*the searchview will listen for a click on the search button,
+ get the searchterm, and get the search model to get the results*/
+ var searchView = Backbone.View.extend({
+   /*we give it a searchtext property that will point to the search text input element*/
+   searchText: document.getElementById("search_text"),
+   /*assigning the event handler in backbone:
+   the object will have a property for each event we want to listen to
+  and the function that should be called when that event occurrs
+  the property name is a string containing the name of the event plus a space
+  plus a css selector that will match the element(or elements) that we want to listen to
+  here we want to listen for a click event on the element with an id of search_button,
+  when that event happens we will call a function called doSearch */
+   events: {
+     "click #search_button": "doSearch"
+   },
 
-    var items = listDiv.getElementsByTagName('a');
-      for(var i = 0; i < items.length; i++) {
-        var item = items[i];
-        item.addEventListener("click", getDetails);
-      }
+   /*we create the doSearch function. we call searchmodel.fetch
+   which tells the model to contact its URL root and request data*/
+   doSearch: function() {
+     searchModel.fetch({
+       /*when we call fetch we can pass in an object with a property called data
+       any properties in the data object will be added as query string paramaters
+       when the model succesfully fetches its data it will dispatch a change event*/
+       data: {
+          s: this.searchText.value
+       }
+     })
+   }
 
-  }
+ });
 
-  function onSearchFail() {
-    alert("There was a problem contacting the server. Please try again");
-  }
+ /*next view is the search results view
+ 1)it needs to listen to search model
+ 2)when search model changes it needs to render search template using the updated data
+ it also needs to listen for clicks on the list items
+ and tell the details model to fetch details for the selected movie*/
+var ResultsView = Backbone.View.extend({
+  template: document.getElementById("list_template").innerHTML;
+  /*in the init function we will listen for changes on the model*/
+  initialize: function() {
+    /*to listen for events on the model:
+    (when search model dispatches a change event we run the render method of this view)*/
+    this.listenTo(searchModel, "change", this.render);
+  },
+  /*this render method will get the data from the model
+   and use it with the template to render the search results*/
+   render: function() {
+     this.el.innerHTML = Mustache.render(this.template, searchModel.toJSON());
+   }
+})
 
-  function getDetails(event) {
-    var id = event.target.id;
-    $.get("http://omdbapi.com/?plot=full&i=" + id, null, null, "json")
-      .done(onDetailsResult)
-      .fail(onSearchFail);
-  }
 
-  function onDetailsResult(data) {
-    var html = Mustache.render(detailsTemplate, data);
-    detailsDiv.innerHTML = html;
-  }
+/*then we make two instances of this model
+searchModel for making the initial search and getting a list of results,
+and detailsModel for getting a paticular models details*/
+
+var searchModel = new movieModel();
+var detailsModel = new movieModel();
+/*we will connect a different view to each model*/
+/*we need to create an instance for the searchview
+we set the element of the searchview to the element with the id search(our search form)*/
+searView = new SearchView({ el: document.getElementById("search")});
+ResultsView = new ResultsView({ el: document.getElementById("list")});
