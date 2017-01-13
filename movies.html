@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/movies.css">
@@ -13,14 +14,15 @@
 		</ul>
 	</script>
 	<script type="text/x-tmpl-mustache" id="details_template">
-	<h2>{{Title}} ({{Year}})</h2>
-	<h3>Starring: {{Actors}}</h3>
-	<img id="poster" src="{{Poster}}">
-	<p>{{Plot}}</p>
+		<h2>{{Title}} ({{Year}})</h2>
+		<h3>Starring: {{Actors}}</h3>
+		<img id="poster" src="{{Poster}}">
+		<p>{{Plot}}</p>
 	</script>
 </head>
+
 <body>
-		<!-- //(^above^) handlebar syntext for an array.
+	<!-- //(^above^) handlebar syntext for an array.
 		// when we search imdb it returns an array called Search
 		// these tags indicate that everything inbetween them will be done
 		// for every element of the array called Search
@@ -37,4 +39,5 @@
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/movies.js"></script>
 </body>
+
 </html>

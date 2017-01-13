@@ -72,10 +72,10 @@ var controller = {
    that will get the value of the views input element and
    use that to call model.addItem
    it will then clear out the input text so it's ready for another item*/
-   addItem: function() {
-      var item = view.input.value;
-      model.addItem(item);
-      view.input.value = "";
-   }
+  addItem: function() {
+    var item = view.input.value;
+    model.addItem(item);
+    view.input.value = "";
+  }
 
 };

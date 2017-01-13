@@ -15,7 +15,7 @@ fillForm();
 /*tie all the below together when the user clicks the button*/
 
 /*add aclick listner to the preview button*/
-previewBtn.addEventListener("click", function(){
+previewBtn.addEventListener("click", function() {
   /*call getFormData and store it in an object called data*/
   var data = getFormData();
   /*use the template and this data in a call to Moustache.render*/

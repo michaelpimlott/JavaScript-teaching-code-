@@ -1,14 +1,13 @@
-
 /*this method accepts various paramaters,
  but at minimum we want to give it a url to the service
  and a function to call when we get a response from the service*/
 
- /*paramaters in the call:
- 1)location
- 2)what units you want temp in (F, MPH)
- 3)API key*/
+/*paramaters in the call:
+1)location
+2)what units you want temp in (F, MPH)
+3)API key*/
 $.get("http://api.openweathermap.org/data/2.5/weather?q=Seattle,wa&units=imperial&APPID=16732e97d93106e7ace6ee659fc0d3bd", function(data) {
-    console.log(data);
+  console.log(data);
 });
 
 /*above we pass a function as one of the paramters to the jQuery 'get'
@@ -32,7 +31,7 @@ request.done(function(data) {
 /*the request object also has a fail method
 you pass it a function, and if the request fails for whatever reason
 that function gets called*/
-request.fail(function(){
+request.fail(function() {
   alert("Request failed. Try Again.");
 })
 
@@ -43,22 +42,22 @@ so we can call 'done' directly on that function call
 $.get("http://api.openweathermap.org/data/2.5/weather?q=Seattle,wa&units=imperial&APPID=16732e97d93106e7ace6ee659fc0d3bd")
   .done(function(data) {
     console.log(data);
-})
-/*calling done on the request returns the request object again,
-so we can keep chaining*/
-  .fail(function(){
+  })
+  /*calling done on the request returns the request object again,
+  so we can keep chaining*/
+  .fail(function() {
     alert("Request failed. Try Again.");
-});
+  });
 
 /*omdb api search*/
 
 
 
-  $.get("http://omdbapi.com/?s=star wars", null, null, "json")
-    .done(function(data) {
-      console.log(data);
+$.get("http://omdbapi.com/?s=star wars", null, null, "json")
+  .done(function(data) {
+    console.log(data);
   })
-  .fail(function(){
+  .fail(function() {
     alert("Request failed. Try Again.");
   });
 
