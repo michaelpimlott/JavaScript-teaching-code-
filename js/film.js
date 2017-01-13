@@ -1,5 +1,5 @@
 /*first we extend backbone.model, giving it a url root of the omdbapi*/
-var movieModel = Backbone.Model.extend({
+var MovieModel = Backbone.Model.extend({
   urlRoot: "http://omdbapi.com"
 });
 
@@ -66,19 +66,33 @@ getDetails: function(event) {
    render: function() {
      this.el.innerHTML = Mustache.render(this.template, searchModel.toJSON());
    }
-})
+});
 
 
 /*here we create the details view*/
+var DetailsView = Backbone.View.extend({
+  template: document.getElementById("details_template").innerHTML,
+
+  initialize: function() {
+    this.listenTo(detailsModel, "change", this.render);
+  },
+
+  render: function() {
+    this.el.innerHTML = Mustache.render(this.template, detailsModel.toJSON());
+
+  }
+});
+
 
 /*then we make two instances of this model
 searchModel for making the initial search and getting a list of results,
 and detailsModel for getting a paticular models details*/
 
-var searchModel = new movieModel();
-var detailsModel = new movieModel();
+var searchModel = new MovieModel(),
+detailsModel = new MovieModel(),
 /*we will connect a different view to each model*/
 /*we need to create an instance for the searchview
 we set the element of the searchview to the element with the id search(our search form)*/
-SearchView = new SearchView({ el: document.getElementById("search")});
-ResultsView = new ResultsView({ el: document.getElementById("list")});
+searchView = new SearchView({ el: document.getElementById("search")}),
+resultsView = new ResultsView({ el: document.getElementById("list")}),
+detailsView = new DetailsView({ el: document.getElementById("details")});
