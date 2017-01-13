@@ -49,6 +49,18 @@ var ResultsView = Backbone.View.extend({
     (when search model dispatches a change event we run the render method of this view)*/
     this.listenTo(searchModel, "change", this.render);
   },
+  /*we need to listen for clicks on the results lists, so we add an event listner*/
+  events: {
+    "click a": "getDetails"
+},
+getDetails: function(event) {
+  detailsModel.fetch({
+    data: {
+      i: event.target.id,
+      plot:"full"
+    }
+  })
+},
   /*this render method will get the data from the model
    and use it with the template to render the search results*/
    render: function() {
@@ -56,6 +68,8 @@ var ResultsView = Backbone.View.extend({
    }
 })
 
+
+/*here we create the details view*/
 
 /*then we make two instances of this model
 searchModel for making the initial search and getting a list of results,
